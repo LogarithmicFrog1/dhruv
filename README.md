@@ -1,36 +1,78 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# marsland.ing
 
-## Getting Started
+A minimal, typography-first personal site for Dhruv Vaze. Built with Next.js.
 
-First, run the development server:
+## Getting started
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Writing content
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Posts live in `content/writing/` as Markdown files with frontmatter:
 
-## Learn More
+```md
+---
+title: "Post Title"
+date: "2026-03-15"
+description: "A short summary."
+published: true
+featured: false
+tags: ["optional", "tags"]
+---
 
-To learn more about Next.js, take a look at the following resources:
+Your content here.
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Set `published: true` to show a post on the site.
+- Set `featured: true` to show it on the homepage (selected posts).
+- The filename becomes the URL slug (`my-post.md` → `/writing/my-post`).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Site structure
 
-## Deploy on Vercel
+| Route | Purpose |
+|---|---|
+| `/` | Homepage — selected/featured posts |
+| `/archive` | All posts, grouped by year |
+| `/work` | What I've done — chill resume |
+| `/about` | Who I am |
+| `/now` | What I'm up to right now |
+| `/writing/[slug]` | Individual post |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Project layout
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+app/                   → Pages and layout (Next.js App Router)
+components/            → Header, footer
+content/writing/       → Markdown posts
+lib/
+  posts.ts             → Content reading and parsing
+  types.ts             → TypeScript types
+  utils.ts             → Date formatting
+  site.ts              → Site-wide config (name, URL, description)
+```
+
+## Customizing
+
+**Colors** — Edit the CSS custom properties in `app/globals.css`. Light and dark mode palettes are in `:root` and the `prefers-color-scheme: dark` media query. The accent color is a warm bronze.
+
+**Typography** — Fonts are loaded in `app/layout.tsx` via `next/font/google`. Lora (serif) for prose, Inter (sans) for UI. Prose styles are in `app/globals.css` under `.prose`.
+
+**Metadata** — Site name, URL, and description are in `lib/site.ts`. Page-level metadata is in each page file.
+
+**Work page** — Edit `app/work/page.tsx` directly. Replace the placeholder roles with your actual experience.
+
+## Deploying to Vercel
+
+Push to a Git repository and import on [vercel.com](https://vercel.com). No environment variables or infrastructure needed — everything is statically generated at build time.
+
+## Tech
+
+- [Next.js](https://nextjs.org) (App Router)
+- [TypeScript](https://www.typescriptlang.org)
+- [Tailwind CSS](https://tailwindcss.com) v4
+- [gray-matter](https://github.com/jonschlinkert/gray-matter) + [remark](https://github.com/remarkjs/remark) for Markdown
