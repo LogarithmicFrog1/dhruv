@@ -20,7 +20,7 @@ export default function HomePage() {
               <time className="w-20 shrink-0 font-mono text-sm text-ink-secondary">
                 {formatDateShort(post.date)}
               </time>
-              <span className="transition-colors group-hover:text-accent">
+              <span className="text-sm text-ink transition-colors group-hover:text-accent">
                 {post.title}
               </span>
             </Link>

@@ -60,7 +60,7 @@ lib/
 
 **Colors** — Edit the CSS custom properties in `app/globals.css`. Light and dark mode palettes are in `:root` and the `prefers-color-scheme: dark` media query. The accent color is a warm bronze.
 
-**Typography** — Fonts are loaded in `app/layout.tsx` via `next/font/google`. Lora (serif) for prose, Inter (sans) for UI. Prose styles are in `app/globals.css` under `.prose`.
+**Typography** — Inter only, loaded in `app/layout.tsx`. One scale (`text-sm` / 14px) across UI and prose; gold accent for page and section labels. Monospace only for dates. Tweak in `app/globals.css` (`body`, `.prose`).
 
 **Metadata** — Site name, URL, and description are in `lib/site.ts`. Page-level metadata is in each page file.
 

@@ -8,10 +8,10 @@ export const metadata: Metadata = {
 export default function NowPage() {
   return (
     <div className="mx-auto max-w-2xl px-6 pb-20">
-      <h1 className="border-b border-rule pb-6 text-xs font-medium uppercase tracking-widest text-ink-secondary">
+      <h1 className="border-b border-rule pb-6 text-sm font-medium text-accent">
         Now
       </h1>
-      <p className="mt-6 text-xs text-ink-secondary">Updated March 2026</p>
+      <p className="mt-6 text-sm text-ink-secondary">Updated March 2026</p>
 
       <div className="prose mt-8">
         <h2>Thinking about</h2>

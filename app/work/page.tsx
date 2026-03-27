@@ -9,33 +9,36 @@ type Role = {
   period: string;
   title: string;
   org: string;
-  description: string;
+  note: string;
 };
 
 const current: Role[] = [
   {
-    period: "2024 –",
-    title: "Building things",
-    org: "",
-    description:
-      "Working on projects at the intersection of technology and craft. More details coming soon.",
+    period: "Oct 2025 –",
+    title: "Co-founder & CEO",
+    org: "LogPose",
+    note: "Building scheduling and ops software for tutoring centers. The kind of admin chaos — reschedules, cancellations, tutor availability, parent texts — that no existing tool handles well.",
   },
 ];
 
 const previous: Role[] = [
   {
-    period: "2022 – 2024",
-    title: "Placeholder Role",
-    org: "Placeholder Company",
-    description:
-      "Replace this with a real description of what you did, what you learned, and what mattered about the work.",
+    period: "Summer 2025",
+    title: "SDE Intern",
+    org: "Amazon",
+    note: "Built a seller compliance notification service in Java on AWS. Cut alarm escalation latency by 25% across the Marketplace.",
   },
   {
-    period: "2020 – 2022",
-    title: "Another Role",
-    org: "Another Place",
-    description:
-      "Replace this too. Keep it conversational — this isn't a résumé, it's context for who you are.",
+    period: "Summer 2024",
+    title: "Summer Associate",
+    org: "BCG",
+    note: "Partnership strategy for a US tech hyperscaler. Also designed a GenAI training curriculum for BCG partners.",
+  },
+  {
+    period: "Fall 2023",
+    title: "Chief-of-Staff",
+    org: "Cascading.AI (now Casca)",
+    note: "Part-time at a YC-backed fintech AI startup. Ran GTM and helped build an ML pipeline for credit risk assessment.",
   },
 ];
 
@@ -46,17 +49,12 @@ function RoleEntry({ role }: { role: Role }) {
         {role.period}
       </span>
       <div>
-        <p className="font-medium">
+        <p className="text-sm text-ink">
           {role.title}
-          {role.org && (
-            <span className="font-normal text-ink-secondary">
-              {" "}
-              — {role.org}
-            </span>
-          )}
+          <span className="text-ink-secondary"> — {role.org}</span>
         </p>
-        <p className="mt-1 text-sm leading-relaxed text-ink-secondary">
-          {role.description}
+        <p className="mt-1.5 text-sm text-ink-secondary leading-relaxed">
+          {role.note}
         </p>
       </div>
     </div>
@@ -66,13 +64,20 @@ function RoleEntry({ role }: { role: Role }) {
 export default function WorkPage() {
   return (
     <div className="mx-auto max-w-2xl px-6 pb-20">
-      <h1 className="border-b border-rule pb-6 text-xs font-medium uppercase tracking-widest text-ink-secondary">
-        What I&apos;ve Done
-      </h1>
+      <header className="border-b border-rule pb-6">
+        <div className="group inline-block">
+          <h1 className="cursor-default text-sm font-medium text-accent transition-colors group-hover:text-ink">
+            What I&apos;ve Done
+          </h1>
+          <p className="mt-0 max-h-0 overflow-hidden text-sm text-ink-secondary opacity-0 transition-[max-height,opacity,margin-top] duration-200 group-hover:mt-2 group-hover:max-h-10 group-hover:opacity-100">
+            i&apos;ll face myself
+          </p>
+        </div>
+      </header>
 
       <section className="mt-10">
         <h2 className="mb-6 text-sm font-medium text-accent">Now</h2>
-        <div className="space-y-6">
+        <div className="space-y-8">
           {current.map((role, i) => (
             <RoleEntry key={i} role={role} />
           ))}
@@ -87,14 +92,6 @@ export default function WorkPage() {
           ))}
         </div>
       </section>
-
-      <div className="mt-16 border-t border-rule pt-8">
-        <p className="text-sm leading-relaxed text-ink-secondary">
-          This page is a work in progress. Replace the placeholder entries above
-          with your actual experience. Keep it honest, keep it brief, keep it
-          human.
-        </p>
-      </div>
     </div>
   );
 }

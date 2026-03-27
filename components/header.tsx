@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 const navLinks = [
+  { href: "/", label: "Selected" },
   { href: "/archive", label: "Archive" },
   { href: "/work", label: "Work" },
   { href: "/about", label: "About" },
@@ -12,14 +13,14 @@ export function Header() {
     <header className="mx-auto max-w-2xl px-6 pb-10 pt-14 text-center sm:pt-20">
       <Link
         href="/"
-        className="text-xs font-medium uppercase tracking-[0.25em] text-ink transition-colors hover:text-accent"
+        className="text-sm font-medium text-ink transition-colors hover:text-accent"
       >
         Dhruv Vaze
       </Link>
-      <p className="mt-2 font-serif text-sm italic text-ink-secondary">
-        technology, ambition, taste, and things that stick
+      <p className="mt-2 text-sm text-ink-secondary">
+        love things deeply, let go freely.
       </p>
-      <nav className="mt-6 flex items-center justify-center gap-1 text-xs uppercase tracking-widest text-ink-secondary">
+      <nav className="mt-6 flex flex-wrap items-center justify-center gap-x-1 gap-y-1 text-sm text-ink-secondary">
         {navLinks.map((link, i) => (
           <span key={link.href} className="flex items-center gap-1">
             {i > 0 && <span className="px-1.5 text-rule">·</span>}

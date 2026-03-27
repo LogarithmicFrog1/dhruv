@@ -26,7 +26,7 @@ export default function ArchivePage() {
 
   return (
     <div className="mx-auto max-w-2xl px-6 pb-20">
-      <h1 className="border-b border-rule pb-6 text-xs font-medium uppercase tracking-widest text-ink-secondary">
+      <h1 className="border-b border-rule pb-6 text-sm font-medium text-accent">
         Archive
       </h1>
 
@@ -43,7 +43,7 @@ export default function ArchivePage() {
                   <time className="w-24 shrink-0 font-mono text-sm text-ink-secondary">
                     {formatDateArchive(post.date)}
                   </time>
-                  <span className="transition-colors group-hover:text-accent">
+                  <span className="text-sm text-ink transition-colors group-hover:text-accent">
                     {post.title}
                   </span>
                 </Link>

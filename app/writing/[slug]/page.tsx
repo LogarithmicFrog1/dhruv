@@ -41,7 +41,7 @@ export default async function PostPage({
         >
           &larr; Archive
         </Link>
-        <h1 className="mt-6 font-serif text-2xl font-normal tracking-tight sm:text-3xl">
+        <h1 className="mt-6 max-w-prose text-sm font-medium leading-snug text-ink break-words">
           {post.title}
         </h1>
         <time className="mt-3 block text-sm text-ink-secondary">
