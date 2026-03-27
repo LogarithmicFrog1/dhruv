@@ -98,7 +98,7 @@ function SunIcon() {
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth="1.25"
+      strokeWidth="1.2"
       strokeLinecap="round"
       className="transition-transform duration-300 group-hover:rotate-6"
       aria-hidden
@@ -117,7 +117,7 @@ function MoonIcon() {
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth="1.25"
+      strokeWidth="1.2"
       strokeLinecap="round"
       strokeLinejoin="round"
       className="transition-transform duration-300 group-hover:-rotate-3"
