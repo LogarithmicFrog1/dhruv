@@ -9,15 +9,17 @@ type Role = {
   period: string;
   title: string;
   org: string;
+  orgUrl?: string;
   note: string;
 };
 
 const current: Role[] = [
   {
-    period: "Oct 2025 –",
+    period: "Winter 2025 –",
     title: "Co-founder & CEO",
     org: "LogPose",
-    note: "Building scheduling and ops software for tutoring centers. The kind of admin chaos — reschedules, cancellations, tutor availability, parent texts — that no existing tool handles well.",
+    orgUrl: "https://www.logpose.live/",
+    note: "Scheduling and ops for tutoring centers. Built with owners who were juggling calendars, texts, and half a dozen tools that don't talk to each other.",
   },
 ];
 
@@ -40,6 +42,12 @@ const previous: Role[] = [
     org: "Cascading.AI (now Casca)",
     note: "Part-time at a YC-backed fintech AI startup. Ran GTM and helped build an ML pipeline for credit risk assessment.",
   },
+  {
+    period: "Fall 2023",
+    title: "Director",
+    org: "University Consulting Club",
+    note: "Developed my first taste for cold outreach - the holy grail.",
+  },
 ];
 
 function RoleEntry({ role }: { role: Role }) {
@@ -51,7 +59,21 @@ function RoleEntry({ role }: { role: Role }) {
       <div>
         <p className="text-sm text-ink">
           {role.title}
-          <span className="text-ink-secondary"> — {role.org}</span>
+          <span className="text-ink-secondary">
+            {" @ "}
+            {role.orgUrl ? (
+              <a
+                href={role.orgUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-accent underline decoration-accent/40 underline-offset-2 transition-colors hover:text-ink hover:decoration-ink"
+              >
+                {role.org}
+              </a>
+            ) : (
+              role.org
+            )}
+          </span>
         </p>
         <p className="mt-1.5 text-sm text-ink-secondary leading-relaxed">
           {role.note}
@@ -65,11 +87,14 @@ export default function WorkPage() {
   return (
     <div className="mx-auto max-w-2xl px-6 pb-20">
       <header className="border-b border-rule pb-6">
-        <div className="group inline-block">
-          <h1 className="cursor-default text-sm font-medium text-accent transition-colors group-hover:text-ink">
+        <div className="group flex min-w-0 max-w-full flex-nowrap items-baseline gap-3">
+          <h1 className="cursor-default shrink-0 text-sm font-medium text-accent transition-colors group-hover:text-ink">
             What I&apos;ve Done
           </h1>
-          <p className="mt-0 max-h-0 overflow-hidden text-sm text-ink-secondary opacity-0 transition-[max-height,opacity,margin-top] duration-200 group-hover:mt-2 group-hover:max-h-10 group-hover:opacity-100">
+          <p
+            className="max-w-0 overflow-hidden whitespace-nowrap text-sm text-ink-secondary opacity-0 transition-[max-width,opacity] duration-300 ease-out group-hover:max-w-[min(100%,12rem)] group-hover:opacity-100"
+            aria-hidden
+          >
             i&apos;ll face myself
           </p>
         </div>

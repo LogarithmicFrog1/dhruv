@@ -11,33 +11,40 @@ export default function NowPage() {
       <h1 className="border-b border-rule pb-6 text-sm font-medium text-accent">
         Now
       </h1>
-      <p className="mt-6 text-sm text-ink-secondary">Updated March 2026</p>
 
       <div className="prose mt-8">
-        <h2>Thinking about</h2>
-        <p>
-          The difference between legibility and transparency. How personal
-          writing changes once it has an audience. Whether taste can be
-          cultivated deliberately or only encountered by accident.
-        </p>
-
         <h2>Working on</h2>
         <p>
-          Building this site. Writing more regularly. A few longer essays that
-          aren&apos;t ready yet.
+          <a
+            href="https://www.logpose.live/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            LogPose
+          </a>{" "}
+          is modern software for tutoring centers. We&apos;re intent on
+          building a great, profitable business while staying bootstrapped.
+          Based in SF, serving education businesses across the nation.
         </p>
+
+        <h2>Trying to</h2>
+        <ul>
+          <li>
+            Cut down from a winter bulk and actually get lean for once. Living
+            next to a beach is great motivation.
+          </li>
+          <li>Drink more coffee.</li>
+        </ul>
 
         <h2>Reading</h2>
-        <p>
-          Re-reading Annie Dillard&apos;s <em>The Writing Life</em>. Scattered
-          essays by Joan Didion. Too many browser tabs.
-        </p>
-
-        <h2>Trying to get better at</h2>
-        <p>
-          Editing ruthlessly. Sitting with ideas longer before writing about
-          them. Not mistaking speed for quality.
-        </p>
+        <ul>
+          <li>
+            <em>Flow</em> (Csikszentmihalyi).
+          </li>
+          <li>
+            <em>On the Edge</em> (Silver)
+          </li>
+        </ul>
       </div>
     </div>
   );

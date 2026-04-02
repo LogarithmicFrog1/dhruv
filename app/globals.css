@@ -15,6 +15,11 @@
  * No class = follow prefers-color-scheme (system).
  */
 
+html {
+  /* Avoid horizontal jump when vertical scrollbar appears between pages */
+  scrollbar-gutter: stable;
+}
+
 :root {
   --surface: #faf9f7;
   --surface-alt: #f3f1ee;
